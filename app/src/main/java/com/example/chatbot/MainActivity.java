@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         messagesTextView = findViewById(R.id.messagesTextView);
         inputEditText = findViewById(R.id.inputEditText);
         context = this;
+        getResponse();
     }
 
     /** This method will be called when the "Send" button is pressed
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     public void send(View view){
         String input = inputEditText.getText().toString();
         // print on the outputTextView what the user types
-        messagesTextView.append(Html.fromHtml("<p><b>Você:</b> " + input + "</p>"));
+        messagesTextView.append(Html.fromHtml("<p><b>You:</b> " + input + "</p>"));
         getResponse();
         inputEditText.setText("");
     }
@@ -54,11 +55,11 @@ public class MainActivity extends AppCompatActivity {
      * This method is responsible for the communication with the watson API
      */
     private void getResponse() {
-        String workspaceId = "95d91aee-1907-43ac-a130-72aeced37bef";
+        String workspaceId = "your workspaceID here";
         String urlAssistant = "https://gateway.watsonplatform.net/assistant/api/v1/workspaces/" +
                 workspaceId +
                 "/message?version=2019-02-28";
-        String authentication = "YXBpa2V5OjVjS1dTZ0wtVzM5SWh6cTFpNHJ5UzlpeXY1N1cxWkpRdFducHFDRzNwVmM2";
+        String authentication = "base64 apikey:password";
         AndroidNetworking.post(urlAssistant)
                 .addHeaders("Content-Type", "application/json")
                 .addHeaders("Authorization", "Basic " + authentication)
