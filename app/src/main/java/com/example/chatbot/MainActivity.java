@@ -55,11 +55,11 @@ public class MainActivity extends AppCompatActivity {
      * This method is responsible for the communication with the watson API
      */
     private void getResponse() {
-        String workspaceId = "your workspaceID here";
+        String workspaceId = "a7436f08-a414-41ab-9906-fa9e6324be46";
         String urlAssistant = "https://gateway.watsonplatform.net/assistant/api/v1/workspaces/" +
                 workspaceId +
                 "/message?version=2019-02-28";
-        String authentication = "base64 apikey:password";
+        String authentication = "YXBpa2V5OlNqOWdOeHdNOF9CS2Naamd1eW1jOE5DeUxseVpUSXU2YmlzdzdteUM4Ukh3";
         AndroidNetworking.post(urlAssistant)
                 .addHeaders("Content-Type", "application/json")
                 .addHeaders("Authorization", "Basic " + authentication)
